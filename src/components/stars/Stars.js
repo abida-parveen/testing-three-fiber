@@ -7,8 +7,7 @@ import { angleToRadian } from "./angleToRadian";
 export const AddStar = () => {
   return (
     <mesh
-
-    // adding a star at a random positions
+      // adding a star at a random positions
       position={[
         Math.random() * (6 - -6) + -6,
         Math.random() * (6 - -6) + -6,
@@ -26,9 +25,11 @@ const Stars = () => {
 
   useFrame((state) => {
     const { x, y } = state.mouse;
+
     // disable click and scoll movement
     orbitRef.current.enableZoom = false;
     orbitRef.current.enableRotation = false;
+    orbitRef.current.enablePan = false;
 
     // allow frame to move when mouse is moving
     orbitRef.current.setAzimuthalAngle(-x * angleToRadian(45));
